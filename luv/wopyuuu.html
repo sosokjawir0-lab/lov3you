@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 3rd Anniversary!</title>
+    <!-- Mengambil font yang cute dan romantis dari Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-pink: #FFB7B2;
+            --soft-pink: #FFDAC1;
+            --accent-peach: #E2F0CB;
+            --text-color: #555;
+            --white: #ffffff;
+            --bg-gradient: linear-gradient(135deg, #fff5f5 0%, #ffe3e3 100%);
+            --shadow: 0 10px 30px rgba(255, 183, 178, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Pacifico', cursive;
+            color: #ff8fa3;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .cat-hero {
+            width: 150px;
+            height: 150px;
+            background: #fff;
+            border-radius: 50%;
+            position: relative;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: bounce 2s infinite;
+        }
+
+        /* Simple CSS Cat Face */
+        .cat-face {
+            position: relative;
+            width: 100px;
+            height: 80px;
+        }
+        .ear {
+            position: absolute;
+            top: -20px;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 30px solid #fff;
+        }
+        .ear.left { left: 5px; transform: rotate(-15deg); }
+        .ear.right { right: 5px; transform: rotate(15deg); }
+        .head {
+            width: 100px;
+            height: 80px;
+            background: #fff;
+            border-radius: 50px;
+            position: relative;
+        }
+        .eye {
+            position: absolute;
+            top: 30px;
+            width: 12px;
+            height: 12px;
+            background: #333;
+            border-radius: 50%;
+            animation: blink 4s infinite;
+        }
+        .eye.left { left: 25px; }
+        .eye.right { right: 25px; }
+        .nose {
+            position: absolute;
+            top: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 6px;
+            background: #ffb7b2;
+            border-radius: 50%;
+        }
+        .mouth {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 10px;
+            border-bottom: 2px solid #333;
+            border-radius: 50%;
+        }
+        .cheeks {
+            position: absolute;
+            top: 40px;
+            width: 15px;
+            height: 8px;
+            background: #ffb7b2;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+        .cheeks.left { left: 10px; }
+        .cheeks.right { right: 10px; }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary-pink);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 143, 163, 0.4);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background: #ff9aa2;
+            box-shadow: 0 6px 20px rgba(255, 143, 163, 0.6);
+        }
+
+        /* --- TIMELINE / MEMORIES --- */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-pink);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+
+        .container-tl {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .container-tl::after {
+            content: '❤️';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            right: -15px;
+            background-color: white;
+            border: 4px solid var(--primary-pink);
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .left { left: 0; }
+        .right { left: 50%; }
+        .left::after { right: -15px; }
+        .right::after { left: -15px; }
+
+        .content {
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .content h3 { color: var(--primary-pink); margin-bottom: 10px; }
+        .content img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* --- LOVE LETTER SECTION --- */
+        .letter-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .letter-content {
+            font-size: 1.1rem;
+            color: #666;
+            white-space: pre-line;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 50px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+        }
+
+        .paw-prints {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .paw {
+            font-size: 20px;
+            animation: float 3s infinite ease-in-out;
+        }
+        .paw:nth-child(2) { animation-delay: 0.5s; }
+        .paw:nth-child(3) { animation-delay: 1s; }
+
+        /* --- ANIMATIONS --- */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        @keyframes blink {
+            0%, 96%, 100% { transform: scaleY(1); }
+            98% { transform: scaleY(0.1); }
+        }
+
+        /* --- MODAL (SURPRISE) --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: #fff0f5;
+            margin: 15% auto;
+            padding: 40px;
+            border: 2px solid var(--primary-pink);
+            width: 80%;
+            max-width: 400px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            animation: popIn 0.5s;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* --- MEDIA QUERIES --- */
+        @media screen and (max-width: 600px) {
+            .timeline::after { left: 31px; }
+            .container-tl { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .container-tl::after { left: 15px; }
+            .left::after, .right::after { left: 15px; }
+            .right { left: 0%; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="cat-hero">
+            <!-- Kucing CSS Murni -->
+            <div class="cat-face">
+                <div class="ear left"></div>
+                <div class="ear right"></div>
+                <div class="head">
+                    <div class="eye left"></div>
+                    <div class="eye right"></div>
+                    <div class="nose"></div>
+                    <div class="mouth"></div>
+                    <div class="cheeks left"></div>
+                    <div class="cheeks right"></div>
+                </div>
+            </div>
+        </div>
+        <h1>Happy 3 Months Anniversary!</h1>
+        <p>Thank you for always love me.</p>
+        <button class="btn" onclick="playMusicAndScroll()">Klik Aku! 🎵</button>
+        
+        <!-- Musik Latar (Opsional: Ganti src dengan link mp3 pilihanmu) -->
+        <audio id="bgMusic" loop>
+            <source src="cihuy.mpeg" type="audio/mpeg">
+        </audio>
+    </header>
+
+    <main class="container">
+        
+        <!-- INTRO SECTION -->
+        <section class="section-padding text-center">
+            <h2>90 Day With You</h2>
+            <p style="max-width: 600px; margin: 20px auto; color: #666;">
+                It feels like just yesterday we started, but now we've already reached 3 months.
+				Every second has been filled with laughter, warm place, and beautiful moments I'll never forget.
+				Like a spoiled kitten, I always want to be near you. 😻
+            </p>
+        </section>
+
+        <!-- TIMELINE KENANGAN -->
+        <section class="section-padding" id="memories">
+            <h2 class="text-center" style="margin-bottom: 50px;">Momen Kita ✨</h2>
+            <div class="timeline">
+                <!-- Item 1 -->
+                <div class="container-tl left">
+                    <div class="content">
+                        <h3>I'm Happy when I'm with you</h3>
+                        <p>One of Happiest Day is When I with you</p>
+                        <img src="1.jpeg">
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="container-tl right">
+                    <div class="content">
+                        <h3>Cute Moment</h3>
+                        <p>I love you more than anything</p>
+                        <img src="2.jpeg">
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="container-tl left">
+                    <div class="content">
+                        <h3>First "I Love You"</h3>
+                        <p>I always choose you</p>
+                        <img src="3.jpeg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOVE LETTER SECTION -->
+        <section class="section-padding text-center">
+            <div class="letter-section">
+                <h2>Surat Untukmu 💌</h2>
+                <br>
+                <div id="typewriter" class="letter-content text-center"></div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE BUTTON SECTION -->
+        <section class="section-padding text-center">
+            <h2>Ada Kejutan Untukmu!</h2>
+            <br>
+            <button class="btn" onclick="openModal()">Buka Hadiah Virtual 🎁</button>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="paw-prints">
+            <span class="paw">🐾</span>
+            <span class="paw">🐾</span>
+            <span class="paw">🐾</span>
+        </div>
+        <p>Dibuat dengan segenap 💖 untuk pacarku tersayang.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px;">Happy 3rd Anniversary!</p>
+    </footer>
+
+    <!-- MODAL POPUP -->
+    <div id="surpriseModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div style="font-size: 50px;">💖🐱💖</div>
+            <h3 style="margin-top: 20px;">I Love You!</h3>
+            <p>Semoga di bulan-bulan berikutnya kita makin bahagia, makin sayang, dan bisa melakukan banyak hal bareng lagi.</p>
+            <p>Jangan pernah bosan sama aku ya! 😽</p>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // 1. Typewriter Effect untuk Surat
+        const textToType = "Dear Sayang,\n\nHappy anniversary ke-3! ngga kerasa kita udah selama ini . Terima kasih sudah selalu sabar, selalu ada, dan selalu bikin aku merasa spesial. Kamu adalah my kisah favorite aq dan manusia terbaik yang pernah kukenal.\n\nAku sayang kamu!\n❤️";
+        const typeWriterElement = document.getElementById('typewriter');
+        let i = 0;
+
+        function typeWriter() {
+            if (i < textToType.length) {
+                let char = textToType.charAt(i);
+                if (char === '\n') {
+                    typeWriterElement.innerHTML += '<br>';
+                } else {
+                    typeWriterElement.innerHTML += char;
+                }
+                i++;
+                setTimeout(typeWriter, 50); // Kecepatan mengetik
+            }
+        }
+
+        // Jalankan typewriter saat halaman dimuat sebagian
+        window.addEventListener('load', () => {
+            setTimeout(typeWriter, 1000);
+        });
+
+        // 2. Music Control
+        function playMusicAndScroll() {
+            const audio = document.getElementById('bgMusic');
+            audio.volume = 0.5; // Set volume 50%
+            audio.play().catch(error => {
+                console.log("Autoplay dicegah browser, perlu interaksi user.");
+            });
+            
+            // Scroll halus ke bagian bawah
+            window.scrollTo({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        }
+
+        // 3. Modal Logic
+        const modal = document.getElementById('surpriseModal');
+
+        function openModal() {
+            modal.style.display = "block";
+            // Confetti effect sederhana (optional visual trick)
+            createConfetti();
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // Tutup modal jika klik di luar kotak
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // 4. Simple Confetti Effect (Visual Treat)
+        function createConfetti() {
+            const colors = ['#FFB7B2', '#FFDAC1', '#E2F0CB', '#B5EAD7', '#C7CEEA'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'fixed';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = '-10px';
+                confetti.style.width = '10px';
+                confetti.style.height = '10px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.zIndex = '1001';
+                confetti.style.borderRadius = '50%';
+                document.body.appendChild(confetti);
+
+                // Animasi jatuh
+                const animationDuration = Math.random() * 3 + 2; // 2-5 detik
+                
+                confetti.animate([
+                    { transform: `translateY(0) rotate(0deg)`, opacity: 1 },
+                    { transform: `translateY(100vh) rotate(720deg)`, opacity: 0 }
+                ], {
+                    duration: animationDuration * 1000,
+                    iterations: 1
+                });
+
+                // Hapus elemen setelah animasi
+                setTimeout(() => {
+                    confetti.remove();
+                }, animationDuration * 1000);
+            }
+        }
+    </script>
+</body>
+</html>
